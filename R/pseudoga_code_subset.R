@@ -10,7 +10,7 @@ set.seed(100)
 #' @param subset Number of cells used in each of the independent pseudotime estimation. Default value is 100. For larger datasets, larger values are recommended.
 #' @param minit Minimum number of generations considered in genetic algorithm. Default value is 30.
 #' @param epsilon The tolerance value used in convergence. Default value is \eqn{10^{-4}}.
-#' @param normalization Normalization method applied on the input dataset. It must be one of the following "default" (DESeq Normalization), "TMM" (TMM Normalization), "quant" (Quantile Normalization) or "cpm" (Counts Per Million).
+#' @param normalization Normalization method applied on the input dataset. It must be one of the following "default" (DESeq2 Normalization), "TMM" (TMM Normalization), "quant" (Quantile Normalization) or "cpm" (Counts Per Million).
 #' @param nnprop Proportion of sample size used as value of k for kNN smoothing. If subsample size is N, (N*nnprop) is considered as value of k. Default value is 0.3.
 #' @keywords
 #' @export
@@ -155,7 +155,7 @@ normalise<-function(cds)
 #The main function to compute pseudotime along with normalization on count data
 findorders_counts_parallel<-function(data,ntest,repl,subsample,minit,epsilon,nnprop)
 {
-  library(DESeq)
+  library(DESeq2)
   library(Matrix)
   library(princurve)
   data<-data[(rowSums(abs(data))>0),]
