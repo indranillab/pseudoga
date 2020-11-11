@@ -37,7 +37,8 @@ pseudoga_branching<-function(sce,type=c("counts","nomralized","expression"),ntes
       library(Matrix)
       data<-assays(sce)$counts
       data<-data[(rowSums(abs(data))>0),]
-      cds<-newCountDataSet(data,conditions=rep(1,dim(data)[2]))
+      conditions<-rep(1,dim(data)[2])
+      cds<-DESeqDataSetFromMatrix(data,DataFrame(conditions),~1)
       cds<-estimateSizeFactors(cds)
       data1<-normalise(cds)
     }else if(normalization=="TMM")
