@@ -1,11 +1,22 @@
 Package: pseudoga
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Cell pseudotime reconstruction based on genetic algorithm
+Version: 0.0.0.9000
+Authors@R: c(
+        person("Pronoy Kanti", "Mondal", role=c("aut", "cre" , "cph"), email="pronoykantimondal@gmail.com"),
+        person("Udit Surya","Saha", role=c("ctb", "cph")),
+        person("Indranil", "Mukhopadhyay", role=c("aut" , "cph"), email="indranilm100@gmail.com"))
+Description: The package pseudoga can be used to perform pseudotime analysis on single cell gene expression data. Given a homogeneous population of cells, the cells can be ordered to form a trajectory. Given a heterogeneous population and cell cluster ids, the packages can be used to find a tree structure based on pseudotime ordering of cells.
+Depends: R (>= 4.0.3), princurve, Matrix, exactRankTests, igraph, RColorBrewer
+biocViews: SingleCellExperiment, DESeq, edgeR, HEM
+License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+NeedsCompilation: no
+Packaged: 2020-10-12 11:14:36 UTC; pronoykantimondal
+Author: Pronoy Kanti Mondal [aut, cre, cph],
+  Udit Surya Saha [ctb, cph],
+  Indranil Mukhopadhyay [aut, cph]
+Maintainer: Pronoy Kanti Mondal <pronoykantimondal@gmail.com>
+
