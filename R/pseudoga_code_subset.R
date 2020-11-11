@@ -159,7 +159,8 @@ findorders_counts_parallel<-function(data,ntest,repl,subsample,minit,epsilon,nnp
   library(Matrix)
   library(princurve)
   data<-data[(rowSums(abs(data))>0),]
-  cds<-newCountDataSet(data,conditions=rep(1,dim(data)[2]))
+  conditions<-rep(1,dim(data)[2])
+  cds<-DESeqDataSetFromMatrix(data,DataFrame(conditions),~1)
   cds<-estimateSizeFactors(cds)
   data<-normalise(cds)
   data<-t(data)
