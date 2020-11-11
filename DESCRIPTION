@@ -6,8 +6,8 @@ Authors@R: c(
         person("Udit Surya","Saha", role=c("ctb", "cph")),
         person("Indranil", "Mukhopadhyay", role=c("aut" , "cph"), email="indranilm100@gmail.com"))
 Description: The package pseudoga can be used to perform pseudotime analysis on single cell gene expression data. Given a homogeneous population of cells, the cells can be ordered to form a trajectory. Given a heterogeneous population and cell cluster ids, the packages can be used to find a tree structure based on pseudotime ordering of cells.
-Depends: R (>= 4.0.3), princurve, Matrix, exactRankTests, igraph, RColorBrewer
-biocViews: SingleCellExperiment, DESeq, edgeR, HEM
+Depends: R (>= 4.0.3), princurve, Matrix, exactRankTests, igraph, RColorBrewer, SingleCellExperiment, DESeq, edgeR, HEM
+biocViews:
 License: GPL(>=2)
 Encoding: UTF-8
 LazyData: true
