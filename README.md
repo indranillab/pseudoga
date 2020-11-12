@@ -10,7 +10,9 @@ can be used to find a tree structure based on pseudotime ordering of cells.
 # Usage:
 
 library(SingleCellExperiment)
+
 counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100)
+
 sce <- SingleCellExperiment(list(counts=counts))
 
 sce<-pseudoga(sce) #Usual PseudoGA
