@@ -7,3 +7,29 @@ to form a trajectory. Given a heterogeneous population and cell cluster ids, the
 can be used to find a tree structure based on pseudotime ordering of cells.
 
 
+# Usage:
+
+library(SingleCellExperiment)
+counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100)
+sce <- SingleCellExperiment(list(counts=counts))
+
+sce<-pseudoga(sce) #Usual PseudoGA
+
+sce1<-pseudoga_parallel(sce) #PseudoGA based on subsampling 
+
+# Recommendations
+
+For large number of cells, "pseudoga_parallel" is more suitable. One should check all the parameters carefully before applying these two functions.
+For details about the parameters, type:
+
+?pseudoga
+
+?pseudoga_parallel
+
+
+
+
+
+
+
+
