@@ -15,7 +15,7 @@ pseudoga(
 )
 }
 \arguments{
-\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "count" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data).}
+\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "counts" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data).}
 
 \item{type}{Type of expression data to be analyzed. It should assume one of these values: "counts", "normalized", "expression". Default is "counts".}
 
