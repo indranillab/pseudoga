@@ -9,6 +9,8 @@ can be used to find a tree structure based on pseudotime ordering of cells.
 
 # Usage:
 
+library(pseudoga)
+
 library(SingleCellExperiment)
 
 counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100)
