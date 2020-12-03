@@ -11,7 +11,7 @@ select_genes(
 )
 }
 \arguments{
-\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "count" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data). The slot "colData" must contain a variable "cluster" with cluster ids of the cells. If no cluster id is provided, the program divides the dataset into two clusters and performs the analysis.}
+\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "counts" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data). The slot "colData" must contain a variable "cluster" with cluster ids of the cells. If no cluster id is provided, the program divides the dataset into two clusters and performs the analysis.}
 
 \item{type}{Type of expression data to be analyzed. It should assume one of these values: "counts", "normalized", "expression". Default is "counts".}
 
