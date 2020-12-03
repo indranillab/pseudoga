@@ -6,6 +6,9 @@ cell gene expression data. Given a homogeneous population of cells, the cells ca
 to form a trajectory. Given a heterogeneous population and cell cluster ids, the packages
 can be used to find a tree structure based on pseudotime ordering of cells.
 
+Input must be provided as SingleCellExperiment object with the expression matrix denoting rows as genes 
+and columns as cells.
+
 
 # Usage:
 
