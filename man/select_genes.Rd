@@ -25,6 +25,7 @@ This function performs gene selection on a single cell expression dataset. Given
 }
 \examples{
 \dontrun{
+library(pseudoga)
 library(SingleCellExperiment)
 counts <- matrix(rpois(3000000, lambda = 10), ncol=300, nrow=10000)
 rownames(counts)<-1:(dim(counts)[1])
