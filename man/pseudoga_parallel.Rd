@@ -43,6 +43,7 @@ This function estimates pseudotime using PseudoGA algorithm. This function is de
 }
 \examples{
 \dontrun{
+library(pseudoga)
 library(SingleCellExperiment)
 counts <- matrix(rpois(1000000, lambda = 10), ncol=10000, nrow=100)
 sce <- SingleCellExperiment(list(counts=counts))
