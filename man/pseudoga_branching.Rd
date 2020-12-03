@@ -17,7 +17,7 @@ pseudoga_branching(
 )
 }
 \arguments{
-\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "count" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data). The slot "colData" must contain a variable named "cluster" that contains cluster ids of individual cells.}
+\item{sce}{A SingleCellExpression object. The slot "assays" must contain one of the followings: "counts" (count data), "normalized" (normalized data), "expression" (neither count data nor normalized data). The slot "colData" must contain a variable named "cluster" that contains cluster ids of individual cells.}
 
 \item{type}{Type of expression data to be analyzed. It should assume one of these values: "counts", "normalized", "expression". Default is "counts".}
 
