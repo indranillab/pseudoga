@@ -13,7 +13,7 @@ library(pseudoga)
 
 library(SingleCellExperiment)
 
-counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100)
+counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100) #Count matrix with genes in rows and cells in columns
 
 sce <- SingleCellExperiment(list(counts=counts))
 
