@@ -37,6 +37,7 @@ This function estimates pseudotime using PseudoGA algorithm. Ordering of cells i
 }
 \examples{
 \dontrun{
+library(pseudoga)
 library(SingleCellExperiment)
 counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100)
 sce <- SingleCellExperiment(list(counts=counts))
