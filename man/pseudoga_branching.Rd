@@ -43,6 +43,7 @@ This function produces a tree structure with cells as nodes.This graph can be us
 }
 \examples{
 \dontrun{
+library(pseudoga)
 library(SingleCellExperiment)
 counts <- matrix(rpois(30000, lambda = 10), ncol=300, nrow=100)
 sce <- SingleCellExperiment(list(counts=counts))
