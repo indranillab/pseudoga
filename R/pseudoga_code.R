@@ -201,7 +201,7 @@ findorders_normalized<-function(data,ntest,minit,epsilon,nnprop)
   matt<-polyfit(data,ntest,minit,epsilon)
   pseudotime<-match(1:(dim(data)[1]),matt)
   dd<-as.matrix(dist(data))
-  dd1<-apply(dd,1,"order")
+  dd1<-t(apply(dd,1,"order"))
   dd1<-dd1[,(1:(floor(nnprop*n)+1))]
   pst<-apply(dd1,1,"perm",data=t(t(pseudotime)))
   return(colMeans(pst))
