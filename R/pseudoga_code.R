@@ -20,8 +20,9 @@ set.seed(100)
 #' sce<-pseudoga(sce)
 #' }
 
-pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3)
+pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3,seed=12345)
 {
+  set.seed(seed)
   library(SingleCellExperiment)
   type<-type[1]
   normalization<-normalization[1]
