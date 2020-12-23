@@ -25,6 +25,7 @@ set.seed(100)
 
 pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest=50,repl=3,subsample=100,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3,seed=12345)
 {
+  RNGkind("L'Ecuyer-CMRG")
   set.seed(seed)
   library(SingleCellExperiment)
   type<-type[1]
