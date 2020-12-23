@@ -23,8 +23,9 @@ set.seed(100)
 #' sce<-pseudoga_parallel(sce)
 #' }
 
-pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest=50,repl=3,subsample=100,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3)
+pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest=50,repl=3,subsample=100,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3,seed=12345)
 {
+  set.seed(seed)
   library(SingleCellExperiment)
   type<-type[1]
   normalization<-normalization[1]
