@@ -19,8 +19,9 @@
 #' sce1<-select_genes(sce)
 #' }
 
-select_genes<-function(sce,type=c("counts","nomralized","expression"),numgenes=500)
+select_genes<-function(sce,type=c("counts","nomralized","expression"),numgenes=500,seed=12345)
 {
+set.seed(seed)
 type<-type[1]
 if(type=="counts")
 {
