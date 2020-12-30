@@ -21,7 +21,7 @@
 
 select_genes<-function(sce,type=c("counts","nomralized","expression"),numgenes=500)
 {
-type=type[1]
+type<-type[1]
 if(type=="counts")
 {
   mat<-assays(sce)$counts
