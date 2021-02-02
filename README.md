@@ -34,10 +34,11 @@ The object "Pseudotime" under "colData" contains inferred pseduotime by PseudoGA
 
 For large number of cells, "pseudoga_parallel" is more suitable. One should check all the parameters carefully before applying these two functions.
 For details about the parameters, type:
-
+```
 ?pseudoga
 
 ?pseudoga_parallel
+```
 
 
 
