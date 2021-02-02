@@ -11,18 +11,20 @@ and columns as cells.
 
 
 # Usage:
+```
 
->library(pseudoga)
+library(pseudoga)
 
->library(SingleCellExperiment)
+library(SingleCellExperiment)
 
->counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100) 
+counts <- matrix(rpois(10000, lambda = 10), ncol=100, nrow=100) 
 
->sce <- SingleCellExperiment(list(counts=counts))
+sce <- SingleCellExperiment(list(counts=counts))
 
->sce<-pseudoga(sce) #Usual PseudoGA
+sce<-pseudoga(sce) #Usual PseudoGA
 
->sce1<-pseudoga_parallel(sce) #PseudoGA based on subsampling 
+sce1<-pseudoga_parallel(sce) #PseudoGA based on subsampling 
+```
 
 # Output 
 
