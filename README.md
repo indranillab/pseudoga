@@ -1,5 +1,5 @@
 - [pseudoga](#pseudoga)
-- [Installation and Usage:](#usage-)
+- [Installation and Usage](#usage-)
 - [Output](#output)
 - [Recommendations](#recommendations)
 - [Analysis of Human midbrain cell development data](#analysis-of-human-midbrain-cell-development-data)
@@ -20,7 +20,7 @@ Input must be provided as SingleCellExperiment object with the expression matrix
 and columns as cells.
 
 
-# Installation and Usage:
+# Installation and Usage
 The package can be installed from github using the following command:
 ```
 library(devtools)
