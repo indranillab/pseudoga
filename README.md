@@ -123,6 +123,6 @@ plot(rank(colData(sce2)$Pseudotime),ddat1[geneord1[2],],col="red",main="Expressi
 
 ```
 <p float="left">
-  <img src="https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png" width="100" />
-  <img src="https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png" width="100" /> 
+  <img src="https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png" width="300" />
+  <img src="https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png" width="300" /> 
 </p>
