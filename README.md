@@ -44,6 +44,15 @@ For details about the parameters, type:
 
 The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/manno_human.rds> . For a collection of similar datasets one can visit <https://hemberg-lab.github.io/scRNA.seq.datasets/> .
 
+## Gene Selection
+
+```
+a<-readRDS("manno_human.rds")
+library(pseudoga)
+sce<-SingleCellExperiment(list(expression=assays(a)$logcounts))
+sce1<-select_genes(sce,numgenes=2000,type="expression")
+```
+
 
 
 
