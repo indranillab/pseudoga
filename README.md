@@ -53,7 +53,12 @@ sce<-SingleCellExperiment(list(expression=assays(a)$logcounts))
 sce1<-select_genes(sce,numgenes=2000,type="expression")
 ```
 
+## Pseudotime estimation
 
+```
+sce2<-pseudoga_parallel(sce1,type="expression",normalization="TMM",repl=20,subsample=300)
+
+```
 
 
 
