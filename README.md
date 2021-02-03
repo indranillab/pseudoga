@@ -84,6 +84,7 @@ time1[(time=="week_8")]<-7
 time1[(time=="week_9")]<-8
 time1[(time=="week_10")]<-9
 time1[(time=="week_11")]<-10
+time<-time1
 
 library(viridis)
 cols<-viridis(12)[time]
