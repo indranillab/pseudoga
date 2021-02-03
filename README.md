@@ -2,11 +2,7 @@
 - [Installation and Usage](#usage-)
 - [Output](#output)
 - [Recommendations](#recommendations)
-- [Analysis of Human midbrain cell development data](#analysis-of-human-midbrain-cell-development-data)
-  * [Gene Selection](#gene-selection)
-  * [Pseudotime estimation by PseudoGA](#pseudotime-estimation-by-pseudoga)
-  * [Visualization of estimated pseudotime with respect to actual pseudotime](#visualization-of-estimated-pseudotime-with-respect-to-actual-pseudotime)
-  * [Genes with highest correlation with the pseudotime](#genes-with-highest-correlation-with-the-pseudotime)
+
 
 # pseudoga
 Cell pseudotime reconstruction based on genetic algorithm
