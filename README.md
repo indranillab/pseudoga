@@ -109,7 +109,7 @@ axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
 ```
 ![](https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1_png.png)
 
-# Genes with highest correlation with the pseudotime
+## Genes with highest correlation with the pseudotime
 The following command shows names of top few genes that have highest linear rank correlation with the estimated pseudotime. 
 
 ```
