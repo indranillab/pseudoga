@@ -97,7 +97,7 @@ plot(ndays[time][oripath1],col=cols[oripath1],ylab="Days of development",xlab="P
 axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
 
 ```
-![alt text](https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1_png.png )
+![alt text](https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1_png.png | width=50)
 
 # Genes with highest correlation with the pseudotime
 The following command shows names of top few genes that have highest linear rank correlation with the estimated pseudotime. 
