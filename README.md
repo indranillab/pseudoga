@@ -55,7 +55,7 @@ sce<-SingleCellExperiment(list(expression=assays(a)$logcounts))
 sce1<-select_genes(sce,numgenes=2000,type="expression")
 ```
 
-## Pseudotime estimation
+## Pseudotime estimation by PseudoGA
 
 Next, we perform pseudotime estimation by PseudoGA. Since this can be considered a large daatset, PseudoGA based on subsampling should be used here.
 
