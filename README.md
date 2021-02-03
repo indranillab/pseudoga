@@ -99,4 +99,17 @@ axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
 ```
 ![alt text](https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1_png.png "Logo Title Text 1")
 
+# Genes with highest correlation with the pseudotime
+The following command shows names of top few genes that have highest linear rank correlation with the estimated pseudotime. 
+
+```
+cors1<-NULL
+data<-assays(sce2)$expression
+cors1<-cor(t(data),colData(sce2)$Pseudotime,method="spearman")
+abscors1<-abs(cors1)
+geneord1<-order(abscors1,decreasing=TRUE)
+pseudogene1<-rownames(data)[geneord1]
+
+```
+
 
