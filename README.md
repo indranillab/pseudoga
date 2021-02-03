@@ -64,7 +64,40 @@ sce2<-pseudoga_parallel(sce1,type="expression",normalization="TMM",repl=20,subsa
 
 ```
 
+## Visualization of estimated pseudotime with respect to actual pseudotime
 
+The actual age of the cells are available. Next we compare them with the estimated pseudotime:
+
+```
+time<-colData(a)$age
+time1<-rep(NA,length(time))
+
+time1[(time=="day_0")]<-1
+time1[(time=="day_12")]<-2
+time1[(time=="day_17")]<-3
+time1[(time=="day_35")]<-4
+time1[(time=="day_42")]<-5
+time1[(time=="day_63")]<-8
+time1[(time=="week_6")]<-5
+time1[(time=="week_7")]<-6
+time1[(time=="week_8")]<-7
+time1[(time=="week_9")]<-8
+time1[(time=="week_10")]<-9
+time1[(time=="week_11")]<-10
+
+library(viridis)
+cols<-viridis(12)[time]
+ndays<-c(0,12,17,35,42,49,56,63,70,77)
+days<-c("DAY 0","DAY 12","DAY 17","DAY 35","DAY 42","DAY 49","DAY 56","DAY 63","DAY 70","DAY 77")
+
+oripath1<-order(colData(sce2)$Pseudotime)
+par(mar=c(5,6,4,2)+0.1)
+plot(ndays[time][oripath1],col=cols[oripath1],ylab="Days of development",xlab="Pseudotime",main="Human brain development data",yaxt="n",cex.lab=2,cex.main=2)
+axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
+
+
+
+```
 
 
 
