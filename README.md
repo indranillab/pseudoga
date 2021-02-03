@@ -97,6 +97,6 @@ plot(ndays[time][oripath1],col=cols[oripath1],ylab="Days of development",xlab="P
 axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
 
 ```
-![alt text] (https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1.pdf)
+![alt text] (https://github.com/pronoymondal/pseudogadata/blob/main/manno_path1.pdf?raw=true)
 
 
