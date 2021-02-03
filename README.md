@@ -96,8 +96,6 @@ par(mar=c(5,6,4,2)+0.1)
 plot(ndays[time][oripath1],col=cols[oripath1],ylab="Days of development",xlab="Pseudotime",main="Human brain development data",yaxt="n",cex.lab=2,cex.main=2)
 axis(side=2, at=ndays[c(1,3,5,7,9)], labels =days[c(1,3,5,7,9)])
 
-
-
 ```
 
 
