@@ -42,7 +42,7 @@ For details about the parameters, type:
 
 # Analysis of Human midbrain cell development data
 
-The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/manno_human.rds>
+The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/manno_human.rds> . For a collection of similar datasets one can visit <https://hemberg-lab.github.io/scRNA.seq.datasets/> .
 
 
 
