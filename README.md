@@ -109,7 +109,17 @@ cors1<-cor(t(data),colData(sce2)$Pseudotime,method="spearman")
 abscors1<-abs(cors1)
 geneord1<-order(abscors1,decreasing=TRUE)
 pseudogene1<-rownames(data)[geneord1]
+head(pseudogene1)
 
 ```
+The following commands plots first two genes with highest correlation with the estimated pseudotime:
 
+```
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce2)$Pseudotime),ddat1[geneord1[1],],col="red",main="Expression of LIN28A",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce2)$Pseudotime),ddat1[geneord1[2],],col="red",main="Expression of RPL23A",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+
+```
 
