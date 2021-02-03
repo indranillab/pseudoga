@@ -40,6 +40,9 @@ For details about the parameters, type:
 ?pseudoga_parallel
 ```
 
+# Analysis of Human midbrain cell development data
+
+The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/manno_human.rds>
 
 
 
