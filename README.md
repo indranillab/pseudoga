@@ -123,4 +123,4 @@ plot(rank(colData(sce2)$Pseudotime),ddat1[geneord1[2],],col="red",main="Expressi
 
 ```
 
-![](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png) ![](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png)
+![](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png) | ![](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png)
