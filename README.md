@@ -122,5 +122,5 @@ par(mar = c(5, 5, 4, 2))
 plot(rank(colData(sce2)$Pseudotime),ddat1[geneord1[2],],col="red",main="Expression of RPL23A",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
 
 ```
-:-------------------------:|:-------------------------:
-![alt-text-1](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png "title-1") ![alt-text-2](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png "title-2")
+
+![alt-text-1](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene1.png "title-1") ![alt-text-1](https://github.com/pronoymondal/pseudogadata/blob/main/manno_cluster1_gene2.png "title-2")
