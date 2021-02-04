@@ -73,7 +73,7 @@ sce1<-select_genes(sce,numgenes=2000,type="expression")
 Next, we perform pseudotime estimation by PseudoGA. Since this can be considered a small daatset, usual PseudoGA should be used here.
 
 ```
-a2<-pseudoga(a1,type="expression",normalization="cpm")
+sce2<-pseudoga(a1,type="expression",normalization="cpm")
 
 ```
 
