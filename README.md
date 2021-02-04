@@ -62,9 +62,9 @@ The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.c
 All genes may not change with pseudotime. So, gene filtering before pseudotime estimation should improve the accuracy the algorithm. We divide the cells into two clusters and find top 2000 differentally expressed genes between these two clusters. However, any other feature selection method can also be used to at this step. 
 
 ```
-a<-readRDS("yan.rds")
+sce<-readRDS("yan.rds")
 library(pseudoga)
-sce<-SingleCellExperiment(list(expression=assays(a)$logcounts))
+assays(sce)$expression<-assays(sce)$logcounts
 sce1<-select_genes(sce,type="expression")
 ```
 
@@ -76,6 +76,8 @@ Next, we perform pseudotime estimation by PseudoGA. Since this can be considered
 sce2<-pseudoga(sce1,type="expression",normalization="cpm")
 
 ```
+
+
 
 
 
