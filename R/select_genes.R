@@ -77,18 +77,20 @@ for(i in 1:(indd-1))
 }
 vec<-na.omit(vec)
 mat_modi<-mat[(unique(vec)),]
+  
+sce1<-sce  
 
 if(type=="counts")
 {
-  sce1<-SingleCellExperiment(list(counts=mat_modi))
+  assays(sce1)$counts<-mat_modi
   colData(sce1)$cluster<-clust
 }else if(type=="normalized")
 {
-  sce1<-SingleCellExperiment(list(normalized=mat_modi))
+  assays(sce1)$normalized<-mat_modi
   colData(sce1)$cluster<-clust
 }else if(type=="expression")
 {
-  sce1<-SingleCellExperiment(list(expression=mat_modi))
+  assays(sce1)$expression<-mat_modi
   colData(sce1)$cluster<-clust
 }
 
