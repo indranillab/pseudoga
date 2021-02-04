@@ -77,6 +77,38 @@ sce2<-pseudoga(sce1,type="expression",normalization="cpm")
 
 ```
 
+## Comparison with developmental stage
+
+Next we compare the estimated pseudotime by PseudoGA with the developmental stages of the cells. 
+
+```
+type<-colData(sce2)$cell_type2
+type1<-rep(NA,length(type))
+type1[(type=="oocyte")]<-1
+type1[(type=="zygote")]<-2
+type1[(type=="2cell")]<-3
+type1[(type=="4cell")]<-4
+type1[(type=="8cell")]<-5
+type1[(type=="morula")]<-6
+type1[(type=="lateblast")]<-7
+
+colData(sce2)$cell_type3<-as.character(type1)
+library(ggplot2)
+library(ggbeeswarm)
+library(ggthemes)
+
+p<-ggplot(as.data.frame(colData(sce2)), aes(x = order(Pseudotime), y = cell_type3, 
+                                             colour = cell_type3)) +
+  geom_quasirandom(groupOnX = FALSE) +
+  scale_color_tableau() + theme_classic()+
+  xlab("PseudoGA pseudotime ordering") + ylab("Developmental Stage") +
+  ggtitle("Estimated Pseudotime and developmental stage")
+
+p<-p+scale_y_discrete( labels = unique(colData(sce2)$cell_type2))
+p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_type2))
+
+ggsave("comparison_plot.png")
+```
 
 
 
