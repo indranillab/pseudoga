@@ -135,9 +135,8 @@ par(mar = c(5, 5, 4, 2))
 plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[2],],col="red",main="Expression of C21orf7",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
 
 ```
-A | B
-- | - 
-  ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene1.png) | ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene2.png)
+
+![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene1.png) | ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene2.png)
 
 
 
