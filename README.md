@@ -110,6 +110,7 @@ p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_t
 ggsave("comparison_plot.png")
 ```
 
+![](https://github.com/pronoymondal/pseudogadata/blob/main/comparison_plot.png)
 
 
 
