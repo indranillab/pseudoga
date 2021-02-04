@@ -131,6 +131,7 @@ The following commands plots first two genes with highest correlation with the e
 par(mar = c(5, 5, 4, 2))
 plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[1],],col="red",main="Expression of ACCSL",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
 
+dev.new()
 par(mar = c(5, 5, 4, 2))
 plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[2],],col="red",main="Expression of C21orf7",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
 
