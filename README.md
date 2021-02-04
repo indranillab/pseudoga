@@ -112,5 +112,35 @@ ggsave("comparison_plot.png")
 
 ![](https://github.com/pronoymondal/pseudogadata/blob/main/comparison_plot.png)
 
+## Genes with highest correlation with the pseudotime
+The following command shows names of top few genes that have highest linear rank correlation with the estimated pseudotime. 
+
+```
+cors1<-NULL
+data<-assays(sce2)$expression
+cors1<-cor(t(data),colData(sce2)$Pseudotime,method="spearman")
+abscors1<-abs(cors1)
+geneord1<-order(abscors1,decreasing=TRUE)
+pseudogene1<-rownames(data)[geneord1]
+head(pseudogene1)
+
+```
+The following commands plots first two genes with highest correlation with the estimated pseudotime:
+  
+```
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[1],],col="red",main="Expression of ACCSL",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[2],],col="red",main="Expression of C21orf7",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+
+```
+A | B
+- | - 
+  ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene1.png) | ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene2.png)
+
+
+
+
 
 
