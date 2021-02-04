@@ -76,23 +76,23 @@ for(i in 1:(indd-1))
   }
 }
 vec<-na.omit(vec)
-mat_modi<-mat[(unique(vec)),]
+#mat_modi<-mat[(unique(vec)),]
   
-sce1<-sce  
+sce1<-sce[(unique(vec)),]
 
-if(type=="counts")
-{
-  assays(sce1)$counts<-mat_modi
-  colData(sce1)$cluster<-clust
-}else if(type=="normalized")
-{
-  assays(sce1)$normalized<-mat_modi
-  colData(sce1)$cluster<-clust
-}else if(type=="expression")
-{
-  assays(sce1)$expression<-mat_modi
-  colData(sce1)$cluster<-clust
-}
+#if(type=="counts")
+#{
+#  assays(sce1)$counts<-mat_modi
+#  colData(sce1)$cluster<-clust
+#}else if(type=="normalized")
+#{
+#  assays(sce1)$normalized<-mat_modi
+#  colData(sce1)$cluster<-clust
+#}else if(type=="expression")
+#{
+#  assays(sce1)$expression<-mat_modi
+#  colData(sce1)$cluster<-clust
+#}
 
 return(sce1)
 }
