@@ -65,7 +65,7 @@ All genes may not change with pseudotime. So, gene filtering before pseudotime e
 a<-readRDS("yan.rds")
 library(pseudoga)
 sce<-SingleCellExperiment(list(expression=assays(a)$logcounts))
-sce1<-select_genes(sce,numgenes=2000,type="expression")
+sce1<-select_genes(sce,type="expression")
 ```
 
 ## Pseudotime estimation by PseudoGA
