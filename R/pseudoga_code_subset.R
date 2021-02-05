@@ -187,15 +187,17 @@ findorders_counts_parallel<-function(data,ntest,repl,subsample,minit,epsilon,nnp
 	}
 	matt<-mclapply(data2,"polyfit",ntest=ntest,minit=minit,epsilon=epsilon)
 	pst1<-array(0,dim<-c(n,repl))
-	dd<-as.matrix(dist(data))
+	#dd<-as.matrix(dist(data))
 	for(i in 1:repl)
 	{
-	  dd1<-dd[,(subset1[[i]])]
+	  #dd1<-dd[,(subset1[[i]])]
+	  xxx<-pdist(data,data[(subset1[[i]]),])
+	  dd1<-t(array(slot(xxx,"dist"),dim<-c(slot(xxx,"p"),slot(xxx,"n"))))
 	  dd1<-t(apply(dd1,1,"order"))
 	  dd1<-dd1[,(1:(floor(nnprop*subsample)+1))]
-	pseudotime<-match(1:(dim(data2[[i]])[1]),match(order(subset1[[i]]),matt[[i]]))
-	pst<-array(pseudotime[as.numeric(dd1)],dim<-dim(dd1))
-	pst1[,i]<-(rowMeans(pst))
+	  pseudotime<-match(1:(dim(data2[[i]])[1]),match(order(subset1[[i]]),matt[[i]]))
+	  pst<-array(pseudotime[as.numeric(dd1)],dim<-dim(dd1))
+	  pst1[,i]<-(rowMeans(pst))
 	}
 	pc<-principal_curve(pst1)
 	return(pc$lambda)
@@ -229,16 +231,18 @@ findorders_normalized_parallel<-function(data,ntest,repl,subsample,minit,epsilon
   }
   matt<-mclapply(data2,"polyfit",ntest=ntest,minit=minit,epsilon=epsilon)
   pst1<-array(0,dim<-c(n,repl))
-  dd<-as.matrix(dist(data))
+  #dd<-as.matrix(dist(data))
   for(i in 1:repl)
   {
-    dd1<-dd[,(subset1[[i]])]
-    dd1<-t(apply(dd1,1,"order"))
-    dd1<-dd1[,(1:(floor(nnprop*subsample)+1))]
-    pseudotime<-match(1:(dim(data2[[i]])[1]),match(order(subset1[[i]]),matt[[i]]))
-    pst<-array(pseudotime[as.numeric(dd1)],dim<-dim(dd1))
-    pst1[,i]<-(rowMeans(pst))
-  }
+     #dd1<-dd[,(subset1[[i]])]
+     xxx<-pdist(data,data[(subset1[[i]]),])
+     dd1<-t(array(slot(xxx,"dist"),dim<-c(slot(xxx,"p"),slot(xxx,"n"))))
+     dd1<-t(apply(dd1,1,"order"))
+     dd1<-dd1[,(1:(floor(nnprop*subsample)+1))]
+     pseudotime<-match(1:(dim(data2[[i]])[1]),match(order(subset1[[i]]),matt[[i]]))
+     pst<-array(pseudotime[as.numeric(dd1)],dim<-dim(dd1))
+     pst1[,i]<-(rowMeans(pst))
+   }
   pc<-principal_curve(pst1)
   return(pc$lambda)
 }
