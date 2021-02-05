@@ -140,7 +140,25 @@ plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[2],],col=
 ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene1.png) | ![alt](https://github.com/pronoymondal/pseudogadata/blob/main/yan_gene2.png)
 
 
+# Analysis of Mouse brain development data
 
+The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/marques.rds> . This dataset contains transcriptome of 5053 mouse oligodendrocyte cells. 
 
+## Gene Selection
+We select top 2000 genes that are differentially expressed between two clusters of cells generated from the datset.
+
+```
+sce<-readRDS("marques.rds")
+assays(sce)$expression<-assays(sce)$logcounts
+sce1<-select_genes(sce,numgenes=2000,type="expression")
+```
+
+## Pseudotime estimation by PseudoGA
+
+We apply PseudoGA with subsampling. Parameters like normalization method, subsample size or number of replicates used in this estimation can be altered. The parameters given here are only for illustration.
+
+```
+sce4<-pseudoga_parallel(sce2,type="expression",normalization="cpm",subsample=300,repl=20)
+```
 
 
