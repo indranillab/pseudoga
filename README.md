@@ -107,7 +107,7 @@ p<-ggplot(as.data.frame(colData(sce2)), aes(x = order(Pseudotime), y = cell_type
 p<-p+scale_y_discrete( labels = unique(colData(sce2)$cell_type2))
 p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_type2))
 
-ggsave("comparison_plot.png")
+ggsave("comparison_plot1.png")
 ```
 
 ![](https://github.com/pronoymondal/pseudogadata/blob/main/comparison_plot.png)
@@ -160,5 +160,15 @@ We apply PseudoGA with subsampling. Parameters like normalization method, subsam
 ```
 sce4<-pseudoga_parallel(sce2,type="expression",normalization="cpm",subsample=300,repl=20)
 ```
+
+## Visualization with principal components
+
+First principal component is plotted against the estimated pseudotime showing continuum of different cell types.
+
+```
+
+
+```
+
 
 
