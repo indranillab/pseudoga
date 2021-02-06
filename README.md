@@ -166,23 +166,6 @@ sce4<-pseudoga_parallel(sce2,type="expression",normalization="cpm",subsample=300
 First principal component is plotted against the estimated pseudotime showing continuum of different cell types.
 
 ```
-type<-colData(sce)$cell_type1
-time1<-rep(NA,length(type))
-
-time1[(type[i]=="OPC")]<-1
-time1[(type[i]=="COP")]<-2
-time1[(type[i]=="NFOL1")]<-3
-time1[(type[i]=="NFOL2")]<-4
-time1[(type[i]=="MFOL1")]<-5
-time1[(type[i]=="MFOL2")]<-6
-time1[(type[i]=="MOL1")]<-7
-time1[(type[i]=="MOL2")]<-8
-time1[(type[i]=="MOL3")]<-9
-time1[(type[i]=="MOL4")]<-10
-time1[(type[i]=="MOL5")]<-11
-time1[(type[i]=="MOL6")]<-12
-time1[(type[i]=="PPR")]<-13
-
 prc<-prcomp(t(assays(sce4)$expression))
 
 colData(sce4)$prcomp1<-prc$x[,1]
