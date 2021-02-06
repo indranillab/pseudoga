@@ -1,7 +1,18 @@
 - [pseudoga](#pseudoga)
-- [Installation and Usage](#usage-)
+- [Installation and Usage](#installation-and-usage)
 - [Output](#output)
 - [Recommendations](#recommendations)
+- [Analysis of Human embryo development data](#analysis-of-human-embryo-development-data)
+  * [Gene Selection](#gene-selection)
+  * [Pseudotime estimation by PseudoGA](#pseudotime-estimation-by-pseudoga)
+  * [Comparison with developmental stage](#comparison-with-developmental-stage)
+  * [Genes with highest correlation with the pseudotime](#genes-with-highest-correlation-with-the-pseudotime)
+- [Analysis of Mouse brain development data](#analysis-of-mouse-brain-development-data)
+  * [Gene Selection](#gene-selection-1)
+  * [Pseudotime estimation by PseudoGA](#pseudotime-estimation-by-pseudoga-1)
+  * [Visualization with principal components](#visualization-with-principal-components)
+  * [Genes with highest correlation with the pseudotime](#genes-with-highest-correlation-with-the-pseudotime-1)
+
 
 
 # pseudoga
