@@ -213,4 +213,6 @@ par(mar = c(5, 5, 4, 2))
 plot(rank(colData(sce4)$Pseudotime),data[geneord1[2],],col="red",main="Expression of Rtn1",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
 ```
 
+![](https://github.com/pronoymondal/pseudogadata/blob/main/marques_gene1.png)
+![](https://github.com/pronoymondal/pseudogadata/blob/main/marques_gene1.png)
 
