@@ -190,4 +190,27 @@ ggsave("prcomp_plot1.png")
 
 ![](https://github.com/pronoymondal/pseudogadata/blob/main/prcomp_plot1.png)
 
+## Genes with highest correlation with the pseudotime
+
+To find the genes with highest correlation with the pseudotime, run the commands below:
+
+```
+cors1<-NULL
+data<-assays(sce4)$expression
+cors1<-cor(t(data),colData(sce4)$Pseudotime,method="spearman")
+abscors1<-abs(cors1)
+geneord1<-order(abscors1,decreasing=TRUE)
+pseudogene1<-rownames(data)[geneord1]
+head(pseudogene1)
+```
+The following commands plots first two genes with highest correlation with the estimated pseudotime:
+
+```
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce4)$Pseudotime),data[geneord1[1],],col="red",main="Expression of Car2",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+
+par(mar = c(5, 5, 4, 2))
+plot(rank(colData(sce4)$Pseudotime),data[geneord1[2],],col="red",main="Expression of Rtn1",xlab="Pseudotime",ylab="Expression",cex.lab=1.8,font.lab=2,cex.main=2,cex.axis=2)
+```
+
 
