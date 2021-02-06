@@ -214,5 +214,5 @@ plot(rank(colData(sce4)$Pseudotime),data[geneord1[2],],col="red",main="Expressio
 ```
 
 ![](https://github.com/pronoymondal/pseudogadata/blob/main/marques_gene1.png)
-![](https://github.com/pronoymondal/pseudogadata/blob/main/marques_gene1.png)
+![](https://github.com/pronoymondal/pseudogadata/blob/main/marques_gene2.png)
 
