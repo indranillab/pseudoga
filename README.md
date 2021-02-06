@@ -153,7 +153,7 @@ plot(rank(colData(sce2)$Pseudotime,ties.method="random"),data[geneord1[2],],col=
 
 # Analysis of Mouse brain development data
 
-The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/marques.rds> . This dataset contains transcriptome of 5053 mouse oligodendrocyte cells. 
+The data can be downloaded from <https://scrnaseq-public-datasets.s3.amazonaws.com/scater-objects/marques.rds> . This dataset contains transcriptome of 5053 mouse oligodendrocyte cells. Details of the dataset can be found at <https://science.sciencemag.org/content/352/6291/1326>
 
 ## Gene Selection
 We select top 2000 genes that are differentially expressed between two clusters of cells generated from the datset.
