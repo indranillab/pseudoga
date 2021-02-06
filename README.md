@@ -97,7 +97,7 @@ library(ggplot2)
 library(ggbeeswarm)
 library(ggthemes)
 
-p<-ggplot(as.data.frame(colData(sce2)), aes(x = order(Pseudotime), y = cell_type3, 
+p<-ggplot(as.data.frame(colData(sce2)), aes(x = rank(Pseudotime,ties.method="random"), y = cell_type3, 
                                              colour = cell_type3)) +
   geom_quasirandom(groupOnX = FALSE) +
   scale_color_tableau() + theme_classic()+
@@ -166,9 +166,45 @@ sce4<-pseudoga_parallel(sce2,type="expression",normalization="cpm",subsample=300
 First principal component is plotted against the estimated pseudotime showing continuum of different cell types.
 
 ```
+type<-colData(sce)$cell_type1
+time1<-rep(NA,length(type))
 
+time1[(type[i]=="OPC")]<-1
+time1[(type[i]=="COP")]<-2
+time1[(type[i]=="NFOL1")]<-3
+time1[(type[i]=="NFOL2")]<-4
+time1[(type[i]=="MFOL1")]<-5
+time1[(type[i]=="MFOL2")]<-6
+time1[(type[i]=="MOL1")]<-7
+time1[(type[i]=="MOL2")]<-8
+time1[(type[i]=="MOL3")]<-9
+time1[(type[i]=="MOL4")]<-10
+time1[(type[i]=="MOL5")]<-11
+time1[(type[i]=="MOL6")]<-12
+time1[(type[i]=="PPR")]<-13
+
+prc<-prcomp(t(assays(sce4)$expression))
+
+colData(sce4)$prcomp1<-prc$x[,1]
+library(ggplot2)
+library(ggbeeswarm)
+library(ggthemes)
+
+set.seed(0)
+p<-ggplot(as.data.frame(colData(sce4)), aes(x = rank(Pseudotime,ties.method="random"), y = prcomp1, 
+                                            colour = cell_type1)) +
+  geom_quasirandom(groupOnX = FALSE) +
+  scale_color_tableau() + theme_classic()+
+  xlab("PseudoGA pseudotime ordering") + ylab("Principal Component I") +
+  ggtitle("Estimated Pseudotime and first principal component")
+
+p<-p+scale_y_discrete( labels = unique(colData(sce2)$cell_type1))
+p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_type1))
+
+ggsave("prcomp_plot1.png")
 
 ```
 
+![](https://github.com/pronoymondal/pseudogadata/blob/main/prcomp_plot1.png)
 
 
