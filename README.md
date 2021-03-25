@@ -121,7 +121,7 @@ p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_t
 ggsave("comparison_plot1.png")
 ```
 
-![](https://github.com/pronoymondal/pseudogadata/blob/main/comparison_plot.png)
+![](https://github.com/pronoymondal/pseudogadata/blob/main/comparison_plot2.png)
 
 ## Genes with highest correlation with the pseudotime
 The following command shows names of top few genes that have highest linear rank correlation with the estimated pseudotime. 
