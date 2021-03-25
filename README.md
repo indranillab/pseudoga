@@ -169,7 +169,7 @@ sce1<-select_genes(sce,numgenes=2000,type="expression")
 We apply PseudoGA with subsampling. Parameters like normalization method, subsample size or number of replicates used in this estimation can be altered. The parameters given here are only for illustration.
 
 ```
-sce4<-pseudoga_parallel(sce2,type="expression",normalization="cpm",subsample=300,repl=20)
+sce4<-pseudoga_parallel(sce1,type="expression",normalization="cpm",subsample=300,repl=20)
 ```
 
 ## Visualization with principal components
