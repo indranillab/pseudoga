@@ -193,7 +193,7 @@ p<-ggplot(as.data.frame(colData(sce4)), aes(x = rank(Pseudotime,ties.method="ran
   ggtitle("Estimated Pseudotime and first principal component")
 
 p<-p+scale_y_discrete( labels = unique(colData(sce3)$cell_type1))
-p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce2)$cell_type1))
+p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce3)$cell_type1))
 
 ggsave("prcomp_plot1.png")
 
