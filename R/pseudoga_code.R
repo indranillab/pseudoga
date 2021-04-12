@@ -23,7 +23,7 @@ set.seed(100)
 pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit=30,epsilon=0.0001,normalization=c("default","TMM","quant","cpm"),nnprop=0.3,seed=12345)
 {
   set.seed(seed)
-  library(SingleCellExperiment)
+  #library(SingleCellExperiment)
   type<-type[1]
   normalization<-normalization[1]
   if(type=="counts")
@@ -36,7 +36,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       return(sce)
     }else if(normalization=="TMM")
     {
-      library(edgeR)
+      #library(edgeR)
       data<-assays(sce)$counts
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
@@ -46,7 +46,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       return(sce)
     }else if(normalization=="quant")
     {
-      library(HEM)
+      #library(HEM)
       data<-assays(sce)$counts
       data1<-quant.normal(data)
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
@@ -79,7 +79,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       stop("The \"normalization\" must be one of the followwings: \"TMM\" / \"quant\" / \"cpm\"")
     }else if(normalization=="TMM")
     {
-      library(edgeR)
+      #library(edgeR)
       data<-assays(sce)$expression
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
@@ -89,7 +89,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       return(sce)
     }else if(normalization=="quant")
     {
-      library(HEM)
+      #library(HEM)
       data<-assays(sce)$expression
       data1<-quant.normal(data)
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
@@ -154,8 +154,8 @@ normalise<-function(cds)
 #The main function to compute pseudotime along with normalization on count data
 findorders_counts<-function(data,ntest,minit,epsilon,nnprop)
 {
-  library(DESeq2)
-  library(Matrix)
+  #library(DESeq2)
+  #library(Matrix)
   data<-data[(rowSums(abs(data))>0),]
   conditions<-rep(1,dim(data)[2])
   cds<-DESeqDataSetFromMatrix(data,DataFrame(conditions),~1)
@@ -185,7 +185,7 @@ findorders_counts<-function(data,ntest,minit,epsilon,nnprop)
 #The main function to compute pseudotime on data which has been already normalized.
 findorders_normalized<-function(data,ntest,minit,epsilon,nnprop)
 {
-  library(Matrix)
+  #library(Matrix)
   data<-data[(rowSums(abs(data))>0),]
   data<-t(data)
   data<-data[,!is.nan(colSums(data))]
