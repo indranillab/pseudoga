@@ -116,7 +116,7 @@ p<-ggplot(as.data.frame(colData(sce2)), aes(x = rank(Pseudotime,ties.method="ran
   ggtitle("Estimated Pseudotime and developmental stage")
 
 p<-p+scale_y_discrete( labels = unique(colData(sce2)$cell_type2))
-p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce3)$cell_type2))
+p<-p+  scale_color_discrete(name = "Stage", labels = unique(colData(sce1)$cell_type2))
 
 ggsave("comparison_plot1.png")
 ```
