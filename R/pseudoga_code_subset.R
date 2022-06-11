@@ -35,6 +35,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
     if(normalization=="default")
     {
     data<-assays(sce)$counts
+    sce<-sce[(rowSums(abs(data)>0)>3),]
+    sce<-sce[,(colSums(abs(data)>0)>3)]
+    data<-assays(sce)$counts
     ord<-findorders_counts_parallel(data,ntest,repl,subsample,minit,epsilon,nnprop)
     names(ord)<-colnames(sce)
     colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
@@ -42,6 +45,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
     }else if(normalization=="TMM")
     {
       #library(edgeR)
+      data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
       data<-assays(sce)$counts
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
@@ -54,6 +60,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
     {
       #library(HEM)
       data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
+      data<-assays(sce)$counts
       data1<-quant.normal(data)
       ord<-findorders_normalized_parallel(data1,ntest,repl,subsample,minit,epsilon,nnprop)
       names(ord)<-colnames(sce)
@@ -61,6 +70,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
       return(sce)
     }else if(normalization=="cpm")
     {
+      data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
       data<-assays(sce)$counts
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
@@ -76,6 +88,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
   }else if(type=="normalized")
   {
     data<-assays(sce)$normalized
+    sce<-sce[(rowSums(abs(data)>0)>3),]
+    sce<-sce[,(colSums(abs(data)>0)>3)]
+    data<-assays(sce)$normalized
     data1<-as.matrix(data)
     ord<-findorders_normalized_parallel(data1,ntest,repl,subsample,minit,epsilon,nnprop)
     names(ord)<-colnames(sce)
@@ -90,6 +105,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
     {
       #library(edgeR)
       data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
+      data<-assays(sce)$expression
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
@@ -101,6 +119,8 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
     {
       #library(HEM)
       data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
       data1<-quant.normal(data)
       ord<-findorders_normalized_parallel(data1,ntest,repl,subsample,minit,epsilon,nnprop)
       names(ord)<-colnames(sce)
@@ -108,6 +128,9 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
       return(sce)
     }else if(normalization=="cpm")
     {
+      data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data)>0)>3),]
+      sce<-sce[,(colSums(abs(data)>0)>3)]
       data<-assays(sce)$expression
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
