@@ -160,7 +160,7 @@ findorders_counts_parallel<-function(data,ntest,repl,subsample,minit,epsilon,nnp
   #library(DESeq2)
   #library(Matrix)
   #library(princurve)
-  data<-data[(rowSums(abs(data))>0),]
+  data<-data[(rowSums(abs(data)>0)>3),]
   conditions<-rep(1,dim(data)[2])
   cds<-DESeqDataSetFromMatrix(data,DataFrame(conditions),~1)
   cds<-estimateSizeFactors(cds)
@@ -208,7 +208,7 @@ findorders_normalized_parallel<-function(data,ntest,repl,subsample,minit,epsilon
 {
   #library(Matrix)
   #library(princurve)
-  data<-data[(rowSums(abs(data))>0),]
+  data<-data[(rowSums(abs(data)>0)>3),]
   data<-t(data)
   data<-data[,!is.nan(colSums(data))]
   data<-data[,!is.na(colSums(data))]
