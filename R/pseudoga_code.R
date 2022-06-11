@@ -31,6 +31,9 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     if(normalization=="default")
     {
       data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
+      data<-assays(sce)$counts
       ord<-findorders_counts(data,ntest,minit,epsilon,nnprop)
       names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
@@ -39,6 +42,8 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     {
       #library(edgeR)
       data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
@@ -50,6 +55,9 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     {
       #library(HEM)
       data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
+      data<-assays(sce)$counts
       data1<-quant.normal(data)
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
       names(ord)<-colnames(sce)
@@ -57,6 +65,9 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       return(sce)
     }else if(normalization=="cpm")
     {
+      data<-assays(sce)$counts
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
       data<-assays(sce)$counts
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
@@ -72,6 +83,9 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
   }else if(type=="normalized")
   {
     data<-assays(sce)$normalized
+    sce<-sce[(rowSums(abs(data1)>0)>3),]
+    sce<-sce[,(colSums(abs(data1)>0)>3)]
+    data<-assays(sce)$normalized
     data1<-as.matrix(data)
     ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
     names(ord)<-colnames(sce)
@@ -86,6 +100,9 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     {
       #library(edgeR)
       data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
+      data<-assays(sce)$expression
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
@@ -97,12 +114,18 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     {
       #library(HEM)
       data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
+      data<-assays(sce)$expression
       data1<-quant.normal(data)
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else if(normalization=="cpm")
     {
+      data<-assays(sce)$expression
+      sce<-sce[(rowSums(abs(data1)>0)>3),]
+      sce<-sce[,(colSums(abs(data1)>0)>3)]
       data<-assays(sce)$expression
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
