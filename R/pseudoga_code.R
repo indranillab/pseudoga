@@ -32,6 +32,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     {
       data<-assays(sce)$counts
       ord<-findorders_counts(data,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else if(normalization=="TMM")
@@ -42,6 +43,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else if(normalization=="quant")
@@ -50,6 +52,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       data<-assays(sce)$counts
       data1<-quant.normal(data)
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else if(normalization=="cpm")
@@ -58,6 +61,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else
@@ -70,6 +74,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
     data<-assays(sce)$normalized
     data1<-as.matrix(data)
     ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+    names(ord)<-colnames(sce)
     colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
     return(sce)
   }else if(type=="expression")
@@ -85,6 +90,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else if(normalization=="quant")
@@ -101,6 +107,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       y<-colSums(data)
       data1<-t(apply(data,1,"/",y))
       ord<-findorders_normalized(data1,ntest,minit,epsilon,nnprop)
+      names(ord)<-colnames(sce)
       colData(sce)$Pseudotime<-(ord-min(ord))/(max(ord)-min(ord))
       return(sce)
     }else
