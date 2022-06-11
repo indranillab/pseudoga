@@ -44,6 +44,7 @@ pseudoga<-function(sce,type=c("counts","nomralized","expression"),ntest=50,minit
       data<-assays(sce)$counts
       sce<-sce[(rowSums(abs(data1)>0)>3),]
       sce<-sce[,(colSums(abs(data1)>0)>3)]
+      data<-assays(sce)$counts
       y<-DGEList(counts=data)
       y<-calcNormFactors(y)
       data1<-t(apply(data,1,"/",y$samples[,3]))
