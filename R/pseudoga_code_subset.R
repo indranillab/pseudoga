@@ -30,6 +30,10 @@ pseudoga_parallel<-function(sce,type=c("counts","nomralized","expression"),ntest
   #library(SingleCellExperiment)
   type<-type[1]
   normalization<-normalization[1]
+  if(is.null(colnames(sce)))
+  {
+    colnames(sce)<-1:(dim(sce)[2])	  
+  }
   if(type=="counts")
   {
     if(normalization=="default")
